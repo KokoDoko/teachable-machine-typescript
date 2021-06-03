@@ -16,8 +16,6 @@ This example model is trained on "Rock, Paper, Scissors"
 
 Sadly there is no `types.d.ts` file for Teachable Machine. You can still find the declarations by installing the actual modules:
 
-Install `tfjs` and `tensorflow image` in **node_modules** to get  type checking. Visual Studio Code should automatically pick up the type information in the `.d.ts` files. 
-
 ```bash
 npm i @tensorflow/tfjs
 npm i @teachablemachine/image
@@ -28,7 +26,7 @@ npm i @teachablemachine/image
 
 ## 💀💀💀 Compiling tensorflow
 
-Sadly the `.d.ts` files are **not** automatically found if you don't import the modules.
+Sadly the `.d.ts` files from the **node_modules** folder are **not** automatically used if you don't import the modules.
 So we have to import the actual tensorflow library and leave out the `<script>` tags from `index.html`. 
 ```typescript
 import * as tf from '@tensorflow/tfjs';
