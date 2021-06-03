@@ -10,15 +10,31 @@ This example model is trained on "Rock, Paper, Scissors"
 
 <br>
 <br>
+<br>
 
-## 🤖 TODO Add Type information
+## 🤖 Using Type declaration files
 
-Install `tfjs` and `tensorflow image` in **node_modules** *just to get better type checking*. Visual Studio Code should automatically pick up the type information in the `.d.ts` files. You don't actually compile the libraries.
+Sadly there is no `types.d.ts` file for Teachable Machine. You can still find the declarations by installing the actual modules:
+
+Install `tfjs` and `tensorflow image` in **node_modules** to get  type checking. Visual Studio Code should automatically pick up the type information in the `.d.ts` files. 
 
 ```bash
 npm i @tensorflow/tfjs
 npm i @teachablemachine/image
 ```
+
+<br>
+<br>
+
+## 💀💀💀 Compiling tensorflow
+
+Sadly the `.d.ts` files are **not** automatically found if you don't import the modules.
+So we have to import the actual tensorflow library and leave out the `<script>` tags from `index.html`. 
+```typescript
+import * as tf from '@tensorflow/tfjs';
+import * as tmImage from '@teachablemachine/image';
+```
+It may be needed to use [ParcelJS](https://parceljs.org) to compile all modules. See the **MatterJS** or **ThreeJS** repositories for examples on using Parcel.
 
 Once you get type information working, you should remove this line from app.ts: 
 ```typescript
@@ -28,18 +44,9 @@ And you should set the `any` checks to **true** in `tsconfig.json`:
 ```json
 "noImplicitAny": true,
 ```
+## 💀💀💀 TODO
 
-<br>
-<br>
-
-## 💀 Compiling tensorflow
-
-If the `.d.ts` files are **not** automatically found, you can try importing the actual tensorflow library. In that case you can leave out the `<script>` tags from `index.html`. 
-```typescript
-import * as tf from '@tensorflow/tfjs';
-import * as tmImage from '@teachablemachine/image';
-```
-It may be needed to use [ParcelJS](https://parceljs.org) to compile all modules. See the **MatterJS** or **ThreeJS** repositories for examples on using Parcel.
+Find a way to use the `.d.ts` declaration files without compiling modules.
 
 <br>
 <br>
