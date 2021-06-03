@@ -2,11 +2,13 @@
 
 This is a code snippet that allows you to train and use your [Teachable Machine](https://teachablemachine.withgoogle.com/train/image) model in a Typescript project. This is a work in progress! 
 
-⚠️ typescript types for Tensorflow functions are currently not checked by the compiler! You can use your Teachable Machine model by ignoring Type checking for Tensorflow.
+⚠️ typescript types for Tensorflow functions are currently not available, so they can't be checked by the compiler! We ignore these types by declaring the `teachable machine image` to be of type `any`.
 
-Press CMD/CTRL + SHIFT + B to build the .ts files into .js files. 
+```typescript
+declare let tmImage : any
+``` 
 
-This example model is trained on "Rock, Paper, Scissors"
+Press CMD/CTRL + SHIFT + B to build the .ts files into .js files. This example model is trained on "Rock, Paper, Scissors"
 
 <br>
 <br>
@@ -14,7 +16,7 @@ This example model is trained on "Rock, Paper, Scissors"
 
 ## 🤖 Using Type declaration files
 
-Sadly there is no `types.d.ts` file for Teachable Machine. You can still find the declarations by installing the actual modules:
+Sadly there is no `types.d.ts` file for Teachable Machine. But you CAN find the declarations by installing the actual modules:
 
 ```bash
 npm i @tensorflow/tfjs
